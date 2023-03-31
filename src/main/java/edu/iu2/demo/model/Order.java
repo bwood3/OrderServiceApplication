@@ -2,30 +2,29 @@ package edu.iu2.demo.model;
 import edu.iu2.demo.model.variables.Item;
 import edu.iu2.demo.model.variables.Payment;
 import edu.iu2.demo.model.variables.ShippingAddress;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Objects;
-
+//NOTE: JSON dictionary keys should match get and set in Order exactly (except for first capital letter)-
+//-retrieving is done automatically
+//NOTE: any "getter" here will print when order is returned
 public class Order {
+
     private int id;
     private double total;
     private ShippingAddress shippingAddress;
     private Payment payment;
     private List<Item> items;
 
-//    public Order(int customerID, double total, ShippingAddress shippingAddress, Payment payment) {
-//        this.customerID = customerID;
-//        this.total = total;
-//        this.shippingAddress = shippingAddress;
-//        this.payment = payment;
-//        this.items = new ArrayList<>();
-//    }
-
-    public int getId() {
+    public int getOrderId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setOrderId(int id) {
         this.id = id;
     }
 
@@ -42,6 +41,15 @@ public class Order {
     }
 
     public void setShippingAddress(ShippingAddress shippingAddress) {
+
+        if(shippingAddress.getCity().isEmpty())
+        {
+            throw new IllegalStateException("Shipping city must not be blank.");
+        }
+        if(shippingAddress.getState().isEmpty())
+        {
+            throw new IllegalStateException("Shipping state must not be blank.");
+        }
         this.shippingAddress = shippingAddress;
     }
 
@@ -57,7 +65,18 @@ public class Order {
         return items;
     }
 
+    //find used so because spring auto prints getters
+    public Item findItemsByID(int id)
+    {
+        return this.items.stream().filter(x -> x.getItemId() == id).findAny().orElse(null);
+    }
+
     public void setItems(List<Item> items) {
+        //Add validation criteria
+        for(Item i : items)
+            if(i.getName().isEmpty())
+                throw new IllegalStateException("Customer item name must not be blank.");
+
         this.items = items;
     }
 

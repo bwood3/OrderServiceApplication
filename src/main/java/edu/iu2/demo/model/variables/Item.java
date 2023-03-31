@@ -2,17 +2,50 @@ package edu.iu2.demo.model.variables;
 
 public class Item {
 
+//    @NotEmpty(message = "Shipping Address \"state\" must not be empty")
     private String name;
     private int quantity;
     private double price;
+    private int itemId;
 
-    private final int itemId;
+    //if this is not empty -> itemReturn is set to true
+    private String reason ="";
+    private boolean itemReturn = false;
 
-    public Item(String name, int quantity, double price, int itemId) {
-        this.name = name;
-        this.quantity = quantity;
-        this.price = price;
-        this.itemId = itemId;
+    public void requestItemReturn()
+    {
+        itemReturn = true;
+    }
+
+    public boolean isReturning()
+    {
+        return itemReturn;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+
+
+//    public Item(String name, int quantity, double price, int itemId) {
+//        this.name = name;
+//        this.quantity = quantity;
+//        this.price = price;
+//        this.itemId = itemId;
+//    }
+
+    public void setItemId(int id)
+    {
+        this.itemId = id;
+    }
+
+    public int getItemId() {
+        return this.itemId;
     }
 
     public String getName() {
@@ -20,6 +53,7 @@ public class Item {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
@@ -39,7 +73,4 @@ public class Item {
         this.price = price;
     }
 
-    public int getItemId() {
-        return itemId;
-    }
 }
