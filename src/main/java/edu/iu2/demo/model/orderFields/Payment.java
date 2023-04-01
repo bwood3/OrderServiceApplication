@@ -1,5 +1,4 @@
-package edu.iu2.demo.model.variables;
-import edu.iu2.demo.model.variables.BillingAddress;
+package edu.iu2.demo.model.orderFields;
 
 public class Payment {
 

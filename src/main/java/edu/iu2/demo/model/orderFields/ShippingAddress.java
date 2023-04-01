@@ -1,5 +1,4 @@
-package edu.iu2.demo.model.variables;
-import jakarta.validation.constraints.NotEmpty;
+package edu.iu2.demo.model.orderFields;
 
 public class ShippingAddress {
 

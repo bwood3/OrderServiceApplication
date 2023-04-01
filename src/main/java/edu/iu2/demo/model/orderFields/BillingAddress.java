@@ -1,4 +1,4 @@
-package edu.iu2.demo.model.variables;
+package edu.iu2.demo.model.orderFields;
 
 //todo update to protected
 public class BillingAddress {

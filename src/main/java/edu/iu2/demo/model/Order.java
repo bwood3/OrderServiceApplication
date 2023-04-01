@@ -1,11 +1,7 @@
 package edu.iu2.demo.model;
-import edu.iu2.demo.model.variables.Item;
-import edu.iu2.demo.model.variables.Payment;
-import edu.iu2.demo.model.variables.ShippingAddress;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import org.springframework.web.bind.annotation.PathVariable;
+import edu.iu2.demo.model.orderFields.Item;
+import edu.iu2.demo.model.orderFields.Payment;
+import edu.iu2.demo.model.orderFields.ShippingAddress;
 
 import java.util.List;
 import java.util.Objects;

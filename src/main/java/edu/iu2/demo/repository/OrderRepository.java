@@ -2,7 +2,7 @@ package edu.iu2.demo.repository;
 import edu.iu2.demo.model.Order;
 
 import edu.iu2.demo.model.Return;
-import edu.iu2.demo.model.variables.Item;
+import edu.iu2.demo.model.orderFields.Item;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

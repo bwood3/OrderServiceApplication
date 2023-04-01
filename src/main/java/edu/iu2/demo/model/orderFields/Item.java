@@ -1,4 +1,4 @@
-package edu.iu2.demo.model.variables;
+package edu.iu2.demo.model.orderFields;
 
 public class Item {
 
