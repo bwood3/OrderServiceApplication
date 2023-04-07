@@ -2,6 +2,10 @@ package edu.iu2.demo.model;
 import edu.iu2.demo.model.orderFields.Item;
 import edu.iu2.demo.model.orderFields.Payment;
 import edu.iu2.demo.model.orderFields.ShippingAddress;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.List;
 import java.util.Objects;
@@ -9,7 +13,6 @@ import java.util.Objects;
 //-retrieving is done automatically
 //NOTE: any "getter" here will print when order is returned
 public class Order {
-
     private int id;
     private double total;
     private ShippingAddress shippingAddress;

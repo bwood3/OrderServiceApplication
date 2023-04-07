@@ -1,5 +1,10 @@
 package edu.iu2.demo.model.orderFields;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class ShippingAddress {
 
 //    @NotEmpty(message = "Shipping Address \"state\" must not be empty.")
