@@ -1,16 +1,37 @@
-package edu.iu2.demo.model.orderFields;
+package edu.iu2.demo.model;
 
-//todo update to protected
-public class BillingAddress {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private String state;
     private String city;
     private int postalCode;
 
-    public BillingAddress(String state, String city, int postalCode) {
-        this.state = state;
-        this.city = city;
-        this.postalCode = postalCode;
+
+
+
+
+
+
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
+
 
     public String getState() {
         return state;
