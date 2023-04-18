@@ -2,6 +2,7 @@ package edu.iu2.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class OrderItem {
@@ -9,9 +10,13 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotBlank(message = "Order item name must not be blank")
     private String name;
     private int quantity;
     private float price;
+
+    //default if customer is not returning
+    private String reason = "N/A";
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
@@ -56,5 +61,13 @@ public class OrderItem {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }

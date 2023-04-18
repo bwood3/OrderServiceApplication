@@ -1,6 +1,8 @@
 package edu.iu2.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
@@ -15,8 +17,10 @@ public class Order {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
+    @Valid
     private Address shippingAddress;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @Valid
     private List<OrderItem> items;
 
     @OneToOne(cascade = CascadeType.ALL)

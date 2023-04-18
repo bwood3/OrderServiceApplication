@@ -1,1 +1,2 @@
-create schema if not exists order_service
+create schema if not exists orders
+-- DROP SCHEMA IF EXISTS orders CASCADE;

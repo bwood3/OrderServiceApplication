@@ -1,9 +1,7 @@
 package edu.iu2.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Address {
@@ -11,15 +9,11 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotBlank(message = "State must not be blank")
     private String state;
+    @NotBlank(message = "City must not be blank")
     private String city;
     private int postalCode;
-
-
-
-
-
-
 
     public int getId() {
         return id;
@@ -28,9 +22,6 @@ public class Address {
     public void setId(int id) {
         this.id = id;
     }
-
-
-
 
 
     public String getState() {
