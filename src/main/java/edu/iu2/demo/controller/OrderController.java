@@ -27,6 +27,7 @@ public class OrderController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:3000")
     public int create(@RequestBody @Valid Order order){
 
         //order.Id is referenced as order ID -> this created automatically by system and is not in JSON
@@ -46,6 +47,7 @@ public class OrderController {
     }
 
     @GetMapping("/order/{orderId}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Order findByOrderId(@PathVariable int orderId){
         System.out.println("Find by order ID");
         return repository.findById(
@@ -55,6 +57,7 @@ public class OrderController {
     }
 
     @GetMapping("/{customerId}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<Order> findByCustomer(@PathVariable int customerId){
         System.out.println("Find by customer ID");
         return repository.findByCustomerId(customerId);
@@ -69,6 +72,7 @@ public class OrderController {
     //Note: itemIds are generated automatically -
     //-- see @Id\n@GeneratedValue(strategy = GenerationType.AUTO) in OrderItem class
     @PutMapping("/return")
+    @CrossOrigin(origins = "http://localhost:3000")
     public void update(@RequestBody Return r)
     {
         //we must find orderId -> find itemId within that order and add a reason
