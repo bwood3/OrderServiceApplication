@@ -27,7 +27,7 @@ public class OrderController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    @CrossOrigin(origins = {"http://localhost:3000", "https://orderservice-frontend-rho.vercel.app/"})
+    @CrossOrigin(origins = {"http://localhost:3000", "https://orderservice-frontend-rho.vercel.app/add-order"})
     public int create(@RequestBody @Valid Order order){
 
         //order.Id is referenced as order ID -> this created automatically by system and is not in JSON
@@ -47,7 +47,7 @@ public class OrderController {
     }
 
     @GetMapping("/order/{orderId}")
-    @CrossOrigin(origins = {"http://localhost:3000", "https://orderservice-frontend-rho.vercel.app/"})
+    @CrossOrigin(origins = {"http://localhost:3000"})
     public Order findByOrderId(@PathVariable int orderId){
         System.out.println("Find by order ID");
         return repository.findById(
@@ -57,7 +57,7 @@ public class OrderController {
     }
 
     @GetMapping("/{customerId}")
-    @CrossOrigin(origins = {"http://localhost:3000", "https://orderservice-frontend-rho.vercel.app/"})
+    @CrossOrigin(origins = {"http://localhost:3000", "https://orderservice-frontend-rho.vercel.app/add-order"})
     public List<Order> findByCustomer(@PathVariable int customerId){
         System.out.println("Find by customer ID");
         return repository.findByCustomerId(customerId);
