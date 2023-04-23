@@ -1,0 +1,11 @@
+services:
+  backend:
+    image: bmwood3/creationimage
+    env:
+      - name: SPRING_PROFILES_ACTIVE
+        value: prod
+    scale:
+      min: 1
+      max: 1
+    ports:
+      - 8083
